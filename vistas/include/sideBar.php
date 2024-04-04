@@ -103,7 +103,7 @@
         </a>
         <ul id="ddmenu_traspaso" class="collapse dropdown-nav">
           <li>
-            <a href="<?php echo SERVERURL;?>vista-usuario/">vista Usuario</a>
+            <a href="<?php echo SERVERURL;?>agregar-traspaso/">Agregar Traspaso</a>
           </li>
           <li>
             <a href="<?php echo SERVERURL;?>lista-traspaso/">Lista de Equipos Traspasados</a>

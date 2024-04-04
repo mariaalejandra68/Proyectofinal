@@ -33,9 +33,12 @@ session_start(['name' => 'SPC']);
             exit();
         }
     ?>
+        <?php if($_SESSION['id_tipo_usu_spc'] == '1' && $_SESSION['id_tipo_usu_spc'] == '1'){?>
         <?php include "vistas/include/sideBar.php"; ?>
         <main class="main-wrapper">
-            <?php include "vistas/include/navBar.php"; ?>
+            
+        <?php }?>
+        <?php include "vistas/include/navBar.php"; ?>
             <div id="content">
                 <?php include $vistas; ?>
                 <?php include "vistas/include/foother.php"; ?>

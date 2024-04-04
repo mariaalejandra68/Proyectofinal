@@ -12,6 +12,7 @@
                 <div class="col-md-6">
                     <div class="title mb-30">
                         <h2>Prestamos de computadores</h2>
+                        <!-- <h2><?php //echo $_SESSION['id_tipo_usu_spc'];?></h2> -->
                     </div>
                 </div>
 

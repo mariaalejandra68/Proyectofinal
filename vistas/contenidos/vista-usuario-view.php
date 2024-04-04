@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="<?php echo SERVERURL; ?>disponiblilidad/">Principal</a>
+                                    <a href="<?php echo SERVERURL; ?>disponibilidad/">Atras</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Formulario de solicitud de préstamo
@@ -34,6 +34,9 @@
             <div class="form-elements-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="text-end mb-3">
+                        <a href="<?php echo SERVERURL;?>disponibilidad/" class="btn btn-danger" style="text-align: left;">Atrás</a>
+                        </div>
                         <div class="card-style mb-30 text-center">
                             <div class="text-center mt-2 texto" style="font-size: 25px;"><i class="bi bi-person-plus lead p-1"></i>Formulario de solicitud de préstamo</div>
                             <form action="<?php echo SERVERURL; ?>controladores/formularioControlador.php" method="POST" autocomplete="off">

@@ -32,11 +32,9 @@ if(isset($_GET['id_disponibilidad'])) {
                     <div class="breadcrumb-wrapper mb-30">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
+                                
                                 <li class="breadcrumb-item">
-                                    <a href="<?php echo SERVERURL; ?>home/">Principal</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="">Usuario</a>
+                                    <a href="<?php echo SERVERURL; ?>vista-usuario/">Formulario</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Lista de Equipos Disponibles

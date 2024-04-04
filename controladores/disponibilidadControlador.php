@@ -24,9 +24,9 @@ class disponibilidadControlador extends equipoModelo
         $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
 
         if (isset($busqueda) && $busqueda != "") {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_equipos WHERE ((n_placa!='$n_placa' AND n_placa!='1') AND (n_placa LIKE '%$busqueda%' OR n_serial  LIKE '%$busqueda%') AND id_disponibilidad = '1') ORDER BY n_placa ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion, tbl_disponibilidad.disponibilidad FROM tbl_equipos JOIN tbl_disponibilidad on tbl_disponibilidad.id_disponibilidad = tbl_equipos.id_disponibilidad WHERE ((n_placa!='$n_placa' AND n_placa!='1') AND (n_placa LIKE '%$busqueda%' OR n_serial  LIKE '%$busqueda%') AND tbl_equipos.id_disponibilidad = '1') ORDER BY n_placa ASC LIMIT $inicio, $registros";
         } else {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_equipos WHERE n_placa!='$n_placa' AND n_placa!='1' AND id_disponibilidad = '1' ORDER BY n_placa  ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion, tbl_disponibilidad.disponibilidad FROM tbl_equipos JOIN tbl_disponibilidad on tbl_disponibilidad.id_disponibilidad = tbl_equipos.id_disponibilidad WHERE n_placa!='$n_placa' AND n_placa!='1' AND tbl_equipos.id_disponibilidad = '1' ORDER BY n_placa  ASC LIMIT $inicio, $registros";
         }        
         
         $conexion = mainModel::conectar();
@@ -59,7 +59,7 @@ class disponibilidadControlador extends equipoModelo
                         <td class="min-width">' . $rows['n_placa'] . '</td>
                         <td class="min-width">' . $rows['n_serial'] . '</td>
                         <td class="min-width">' . $rows['descripcion'] . '</td>
-                        <td class="min-width">' . $rows['id_disponibilidad'] . '</td>
+                        <td class="min-width">' . $rows['disponibilidad'] . '</td>
                           
                     </tr>';
                 

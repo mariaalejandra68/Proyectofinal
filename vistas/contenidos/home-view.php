@@ -44,19 +44,6 @@
                 </div>
             </a>
         </div>
-
-        <div class="col-md-4 mb-4">
-            <a href="<?php echo SERVERURL; ?>disponibilidad/" class="text-decoration-none">
-                <div class="card mx-auto rounded-3 shadow" style="max-width: 15rem; margin-bottom: 20px; border-color: #5d657b;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title" style="color: #5d657b; font-family: 'Work Sans', sans-serif;">Equipos Disponibles</h5>
-                        <i class="fas fa-laptop fa-3x mb-3" style="color: #b4e4b4;"></i>
-                        <p class="card-text" style="color: #5d657b;">Disponibles</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
         <div class="col-md-4 mb-4">
             <a href="<?php echo SERVERURL; ?>agregar-devoluciones/" class="text-decoration-none">
                 <div class="card mx-auto rounded-3 shadow" style="max-width: 15rem; margin-bottom: 20px; border-color: #5d657b;">
