@@ -80,7 +80,7 @@
         <div class="login-box">
             <div class="col-sm-12 text-center">
                 <div class="logo1">
-                    <span class="logo-font">Bienvenido al sistema de préstamos del SENA</span>
+                    <span class="logo-font">¡Bienvenido al sistema de préstamos del SENA!</span>
                 </div>
             </div>
             <div class="row">
