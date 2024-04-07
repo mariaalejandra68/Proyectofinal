@@ -7,13 +7,12 @@ class equipoModelo extends mainModel
 
     /*------------- MODELO AGREGAR EQUIPO -----------------------*/
     protected static function agregar_equipo_modelos($datos){
-        $sql = mainModel::conectar()->prepare("INSERT INTO tbl_equipos(n_placa,n_serial,descripcion,id_disponibilidad,id_usuario)      
-        VALUES(:n_placa,:n_serial,:descripcion,:id_disponibilidad,:id_usuario)");
+        $sql = mainModel::conectar()->prepare("INSERT INTO tbl_equipos(n_placa,n_serial,descripcion,id_disponibilidad)      
+        VALUES(:n_placa,:n_serial,:descripcion,:id_disponibilidad)");
         $sql->bindParam(":n_placa", $datos['n_placa']);
         $sql->bindParam(":n_serial", $datos['n_serial']);
         $sql->bindParam(":descripcion", $datos['descripcion']);
         $sql->bindParam(":id_disponibilidad", $datos['id_disponibilidad']);
-        $sql->bindParam(":id_usuario", $datos['id_usuario']);
 
         $sql->execute();
         return $sql;
