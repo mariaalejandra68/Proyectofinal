@@ -17,7 +17,7 @@
             if (result.value) {
                 let url = '<?php echo SERVERURL; ?>ajax/loginAjax.php';
                 let token = '<?php echo ($_SESSION['token_spc']); ?>';
-                let nombre = '<?php echo ($_SESSION['id_spc']); ?>';
+                let nombre = '<?php echo ($_SESSION['usuarioId_spc']); ?>';
 
                 let datos = new FormData();
                 datos.append("token", token);
@@ -49,7 +49,7 @@
             if (result.value) {
                 let url = '<?php echo SERVERURL; ?>ajax/loginAjax.php';
                 let token = '<?php echo ($_SESSION['token_spc']); ?>';
-                let nombre = '<?php echo ($_SESSION['identificacion_spc']); ?>';
+                let nombre = '<?php echo ($_SESSION['usuarioId_spc']); ?>';
 
                 let datos = new FormData();
                 datos.append("token", token);
