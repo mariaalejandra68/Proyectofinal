@@ -43,7 +43,7 @@
                 <a href="<?php echo SERVERURL; ?>pass-update/"><i class="lni lni-user"></i>Cambiar contraseña</a>
               </li>
               <li>
-              <a href="<?php echo SERVERURL; ?>login/" id="cerrar-sesion-btn" class="btn-exit-system2"><i class="lni lni-exit"></i>Cerrar sesion</a>
+              <a href="" id="cerrar-sesion-btn" class="btn-exit-system2"><i class="lni lni-exit"></i>Cerrar sesion</a>
               </li>
             </ul>
           </div>
@@ -53,35 +53,5 @@
     </div>
   </div>
 </header>
-<script>
-    document.getElementById('cerrar-sesion-btn').addEventListener('click', function(event) {
-        <?php 
-            function cerrar_sesion_controladores()
-            {
-                session_start(['name' => 'SPC']); 
-                $token = mainModel::limpiar_cadena($_POST['token']);
-                $nombre = mainModel::limpiar_cadena($_POST['useUser']);
-        
-                if ($token == $_SESSION['token_spc'] && $nombre == $_SESSION['tbl_usua_id_spc']) {
-                    session_unset();
-                    session_destroy();
-                    $alerta = [
-                        "Alerta" => "redireccionar",
-                        "URL" => SERVERURL . "login/",
-                    ];
-                } else {
-                    $alerta = [
-                        "Alerta" => "simple",
-                        "Titulo" => "Ha ocurrido un error",
-                        "Texto" => "No se ha podido cerrar sesion",
-                        "Tipo" => "error"
-                    ];
-                }
-                echo json_encode($alerta);
-                exit();
-            }
-          ?>
-    });
-</script>
 
 <!-- ==========  fin ========== -->

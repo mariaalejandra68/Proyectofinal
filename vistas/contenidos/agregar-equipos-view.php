@@ -77,16 +77,7 @@ $disponibilidad = $reg_usuario->listar_disponibilidad();
                                     </div>
 
 
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Usuario</label>
-                                        <!-- Campo de selección para el usuario -->
-                                        <select class="form-control" id="input-select-usuario" name="id_usuario_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($usuario as $fila) : ?>
-                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                                    
 
                                     <div class="form-group col-md-4 mt-5">
                                         <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Guardar Datos</button>

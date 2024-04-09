@@ -15,11 +15,11 @@ class equipoControlador extends equipoModelo
         $n_serial = mainModel::limpiar_cadena($_POST['n_serial_reg']);
         $descripcion = mainModel::limpiar_cadena($_POST['descripcion_reg']);
         $id_disponibilidad = mainModel::limpiar_cadena($_POST['id_disponibilidad_reg']);
-        $id_usuario = mainModel::limpiar_cadena($_POST['id_usuario_reg']);
+        //$id_usuario = mainModel::limpiar_cadena($_POST['id_usuario_reg']);
 
 
         /* Verificando integridad de los datos */
-        if ($n_placa == "" || $n_serial == "" || $descripcion == "" || $id_disponibilidad == ""  || $id_usuario == "" ) {
+        if ($n_placa == "" || $n_serial == "" || $descripcion == "" || $id_disponibilidad == "") {
             $alerta = [
                 "Alerta" => "simple",
                 "Titulo" => "Ocurrió un error inesperado",
@@ -77,13 +77,13 @@ class equipoControlador extends equipoModelo
             "n_serial"=> $n_serial,
             "descripcion"=> $descripcion,
             "id_disponibilidad"=> $id_disponibilidad,
-            "id_usuario"=> $id_usuario
+            //"id_usuario"=> $id_usuario
         ];
         $agregar_equipo = equipoModelo::agregar_equipo_modelos($datos_equipo_add);
         if ($agregar_equipo->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
-                "Titulo" => "Usuario Registrado",
+                "Titulo" => "Equipo Registrado",
                 "Texto" => "El equipo ha sido registrado exitosamente.",
                 "Tipo" => "success"
             ];

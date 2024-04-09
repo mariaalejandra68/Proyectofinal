@@ -86,9 +86,9 @@ class loginControlador extends loginModelo
     {
         session_start(['name' => 'SPC']); 
         $token = mainModel::limpiar_cadena($_POST['token']);
-        $nombre = mainModel::limpiar_cadena($_POST['useUser']);
+        $nombre = mainModel::limpiar_cadena($_POST['nombre']);
 
-        if ($token == $_SESSION['token_spc'] && $nombre == $_SESSION['tbl_usua_id_spc']) {
+        if ($token == $_SESSION['token_spc'] || $nombre == $_SESSION['usuarioId_spc']) {
             session_unset();
             session_destroy();
             $alerta = [

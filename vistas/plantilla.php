@@ -8,7 +8,7 @@ session_start(['name' => 'SPC']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="icon" href="<?php echo SERVERURL; ?>view/img/Logo_fondo.png">
+    <link rel="icon" href="<?php echo SERVERURL; ?>vistas/img/Logo_fondo.png">
     <?php include "./vistas/include/css.php"; ?>
 </head>
 
@@ -19,7 +19,7 @@ session_start(['name' => 'SPC']);
     $IV = new vistasControlador();
     $vistas = $IV->obtener_vistas_controladores();
 
-    if ($vistas == "login" || $vistas == "404") {
+    if ($vistas == "login" || $vistas == "404" || $vistas == "registrar-login") {
         require_once "./vistas/contenidos/" . $vistas . "-view.php";
     } else {
         $pagina = explode("/", $_GET['views']);
@@ -27,7 +27,8 @@ session_start(['name' => 'SPC']);
         $lc = new loginControlador();
 
         if (
-            !isset($_SESSION['token_spc']) || !isset($_SESSION['tbl_usua_id_spc'])
+            !isset($_SESSION['token_spc']) || !isset($_SESSION['tbl_usua_id_spc']) || !isset($_SESSION['usuarioId_spc']) ||
+            !isset($_SESSION['id_tipo_usu_spc']) || !isset($_SESSION['usePass_spc']) || !isset($_SESSION['useUser_spc'])
         ) {
             echo $lc->forzar_cierre_sesion_controladores();
             exit();

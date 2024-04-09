@@ -2,7 +2,7 @@
 $peticionAjax = true;
 require_once "../config/APP.php";
 
-if (isset($_POST['token']) && isset($_POST['useUser'])) {
+if (isset($_POST['token']) && isset($_POST['nombre'])) {
    require_once "../controladores/loginControlador.php";
    $ins_login = new loginControlador();
 

@@ -128,7 +128,7 @@
       <hr />
       </span>
       <li class="nav-item">
-        <a href=" <?php echo SERVERURL; ?>login/" class="exit-system-cerrar">
+        <a href="" class="exit-system-cerrar">
           <i class="bi bi-box-arrow-left lead px-2 iconos-color" data-bs-toggle="tooltip" data-bs-placement="right" title="Reportes"></i>
           <span class="text">Cerrar sesión</span>
         </a>
