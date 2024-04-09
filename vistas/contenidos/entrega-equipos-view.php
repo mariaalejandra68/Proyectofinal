@@ -29,9 +29,6 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#0">Usuario</a>
-                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Entrega de Equipos
                                 </li>
@@ -87,23 +84,29 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
 
                                     <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Usuarios</label>
-                                        <select class="form-control" id="input-select-usuario" name="id_usuario_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($usuario as $fila) : ?>
-                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_usuario_reg" id="input-select-usuario">
+                                                <option>Selecciona</option>
+                                                <?php foreach ($usuario as $fila) : ?>
+                                                    <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
                                     </div>
+
 
                                     <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Equipos</label>
-                                        <select class="form-control" id="input-select-equipo" name="id_equipo_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($equipo as $fila) : ?>
-                                                <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
+                                                <option>Selecciona</option>
+                                                <?php foreach ($equipo as $fila) : ?>
+                                                    <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="form-group col-md-4 mt-3">
                                             <label class="form-label">Disponibilidad</label>

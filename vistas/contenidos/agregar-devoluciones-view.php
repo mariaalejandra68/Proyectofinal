@@ -47,47 +47,52 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                         <div class="card-style mb-30 text-center">
                             <div class="text-center mt-2 texto" style="font-size: 25px;"><i class="bi bi-person-plus lead p-1"></i>Agregar Devoluciones</div>
                             <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/devolucionesAjax.php" method="POST" data-form="save" autocomplete="off">
-                                <div class="row mt-4">
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">ID Devolucion</label>
-                                        <input class="form-control" maxlength="10" type="text" name="id_devolucion_reg" pattern="[0-9-]{4,10}" require>
+                            <div class="row mt-4">
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="control-label">ID Devolucion</label>
+                                            <input class="form-control" maxlength="10" type="text" name="id_devolucion_reg" pattern="[0-9-]{4,10}" require>
+                                        </div>
+
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="control-label">Fecha Devolucion</label>
+                                            <input class="form-control" maxlength="30" type="date" name="fecha_devolucion_reg" require>
+                                        </div>
+
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="control-label">Usuarios</label>
+                                            <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                                <select class="form-control selectpicker" data-live-search="true" name="id_usuario_reg" id="input-select-usuario">
+                                                    <option>Selecciona</option>
+                                                    <?php foreach ($usuario as $fila) : ?>
+                                                        <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Fecha Devolucion</label>
-                                        <input class="form-control" maxlength="30" type="date" name="fecha_devolucion_reg" require>
-                                    </div>
-
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Usuarios</label>
-                                        <select class="form-control" id="input-select-usuario" name="id_usuario_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($usuario as $fila) : ?>
-                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Equipos</label>
-                                        <select class="form-control" id="input-select-equipo" name="id_equipo_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($equipo as $fila) : ?>
-                                                <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
+                                                <option>Selecciona</option>
+                                                <?php foreach ($equipo as $fila) : ?>
+                                                    <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Soporte Tecnico</label>
-                                        <select class="form-control" id="input-select-soporte" name="id_soporte_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($soporte as $fila) : ?>
-                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <label class="control-label">Soporte Técnico</label>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_soporte_reg" id="input-select-soporte">
+                                                <option>Selecciona</option>
+                                                <?php foreach ($soporte as $fila) : ?>
+                                                    <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-4 mt-3">
@@ -101,17 +106,17 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
-                                </div>
 
-                                <div class="row">
                                     <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Observaciones</label>
                                         <input class="form-control" maxlength="30" type="text" name="observaciones_reg" require>
                                     </div>
+
                                     <div class="form-group col-md-4 mt-5">
                                         <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Guardar Datos</button>
                                         <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="reset" style="font-size: 15px;">Vaciar Area</button>
                                     </div>
+
                                 </div>
                             </form>
                         </div>
