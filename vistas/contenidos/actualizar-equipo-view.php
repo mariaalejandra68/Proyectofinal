@@ -60,12 +60,12 @@ $disponibilidad = $reg_usuario->listar_disponibilidad();
                                     <div class="row mt-4">
                                         <div class="form-group col-md-4 mt-3">
                                             <label class="control-label">No. de placa</label>
-                                            <input class="form-control" maxlength="10" type="text" name="n_placa_up" value="<?php echo $campos['n_placa']; ?>" pattern="[0-9-]{2,10}" require>
+                                            <input class="form-control" maxlength="10" type="text" name="n_placa_up" value="<?php echo $campos['n_placa']; ?>" pattern="[0-9-]{2,10}" readonly require>
                                         </div>
 
                                         <div class="form-group col-md-4 mt-3">
                                             <label class="control-label">No. de serial</label>
-                                            <input class="form-control" maxlength="30" type="text" name="n_serial_up" value="<?php echo $campos['n_serial']; ?>" require>
+                                            <input class="form-control" maxlength="30" type="text" name="n_serial_up" value="<?php echo $campos['n_serial']; ?>" pattern="[0-9-]{2,10}" readonly require>
                                         </div>
 
                                         <div class="form-group col-md-4 mt-3">

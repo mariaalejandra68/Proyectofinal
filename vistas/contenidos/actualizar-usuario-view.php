@@ -1,7 +1,6 @@
 <?php
 include "./modelos/usuarioModelo.php";
 $reg_equipo = new usuarioModelo();
-$equipo = $reg_equipo->listar_equipos();
 ?>
 <style>
   .form-elements-wrapper {
@@ -59,7 +58,7 @@ $equipo = $reg_equipo->listar_equipos();
                                     <div class="row mt-4">
                                         <div class="form-group col-md-4 mt-3">
                                             <label class="control-label">Identificación</label>
-                                            <input class="form-control" maxlength="10" type="text" name="identificacion_up" value="<?php echo $campos['identificacion']; ?>" pattern="[0-9-]{2,10}" require>
+                                            <input class="form-control" maxlength="10" type="text" name="identificacion_up" value="<?php echo $campos['identificacion']; ?>" pattern="[0-9-]{2,10}" readonly require>
                                         </div>
 
                                         <div class="form-group col-md-4 mt-3">
@@ -81,18 +80,6 @@ $equipo = $reg_equipo->listar_equipos();
                                         <div class="form-group col-md-4 mt-3">
                                             <label class="control-label">Sede</label>
                                             <input class="form-control" maxlength="10" type="text" name="sede_up" value="<?php echo $campos['sede']; ?>" require>
-                                        </div>
-
-                                        <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">equipo</label>
-                                            <select class="form-control" name="equipo_up">
-                                                <option>Selecciona</option>
-                                                <?php foreach ($equipo as $fila) : ?>
-                                                    <option value="<?php echo $fila['idequipo']; ?>" <?php if ($campos['equipo'] == $fila['idequipo']) {
-                                                        echo 'selected=""';} ?>><?php echo $fila['numeroequipo'] ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
                                         </div>
                                     </div>
 

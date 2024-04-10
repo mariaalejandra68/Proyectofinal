@@ -11,6 +11,7 @@
 <aside class="sidebar-nav-wrapper">
   <div class="navbar-logo">
     <img class="logo" src="<?php echo SERVERURL; ?>vistas/img/Logo_fondo.png" />
+    <h6>Administrador</h6>
   </div>
   <nav class="sidebar-nav">
     <ul>

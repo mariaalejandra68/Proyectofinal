@@ -37,13 +37,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
               <li>
-                <a href="<?php echo SERVERURL; ?>perfil/"><i class="lni lni-user"></i>Mi perfil</a>
-              </li>
-              <li>
-                <a href="<?php echo SERVERURL; ?>pass-update/"><i class="lni lni-user"></i>Cambiar contraseña</a>
-              </li>
-              <li>
-              <a href="" id="cerrar-sesion-btn" class="btn-exit-system2"><i class="lni lni-exit"></i>Cerrar sesion</a>
+              <a href="" id="cerrar-sesion-btn" class="btn-exit-system2"><i class="lni lni-exit" ></i>Cerrar sesion</a>
               </li>
             </ul>
           </div>

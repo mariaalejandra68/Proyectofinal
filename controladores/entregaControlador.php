@@ -20,16 +20,16 @@ class entregaControlador extends entregaModelo
         $documento_representante = mainModel::limpiar_cadena($_POST['documento_representante_reg']);
         $id_usuario = mainModel::limpiar_cadena($_POST['id_usuario_reg']);
         $id_equipo = mainModel::limpiar_cadena($_POST['id_equipo_reg']);
-
+    
         /* Verificando integridad de los datos */
-        
+    
         if ($id_entrega == "" || $fecha_entrega == "" || $ciudad_entrega == "" || $codigo_tic_sena == "" || $codigo_sitio == "" || $nombre_representante == "" || $documento_representante == "" || $id_usuario == "" || $id_equipo == "") {
-                $alerta = [
-                    "Alerta" => "simple",
-                    "Titulo" => "Ocurrió un error inesperado",
-                    "Texto" => "No has llenado todos los campos que son obligatorios",
-                    "Tipo" => "error"
-                ];
+            $alerta = [
+                "Alerta" => "simple",
+                "Titulo" => "Ocurrió un error inesperado",
+                "Texto" => "No has llenado todos los campos que son obligatorios",
+                "Tipo" => "error"
+            ];
             echo json_encode($alerta);
             exit();
         }
@@ -43,8 +43,8 @@ class entregaControlador extends entregaModelo
             echo json_encode($alerta);
             exit();
         }
-        
-
+    
+    
         if (mainModel::verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}", $ciudad_entrega)) {
             $alerta = [
                 "Alerta" => "simple",
@@ -55,7 +55,33 @@ class entregaControlador extends entregaModelo
             echo json_encode($alerta);
             exit();
         }
+
+        // Validación de fecha
+        $fecha_actual = date("Y-m-d");
+        if ($fecha_entrega > $fecha_actual) {
+            $alerta = [
+                "Alerta" => "simple",
+                "Titulo" => "Ocurrió un error inesperado",
+                "Texto" => "La fecha de entrega no puede ser posterior a la fecha actual",
+                "Tipo" => "error"
+            ];
+            echo json_encode($alerta);
+            exit();
+        }
         
+        // Verificar si el equipo ya ha sido entregado a otro usuario
+        $check_equipo_entregado = mainModel::ejecutar_consulta_simple("SELECT id_entrega FROM tbl_entrega WHERE id_equipo='$id_equipo'");
+        if ($check_equipo_entregado->rowCount() > 0) {
+            $alerta = [
+                "Alerta" => "simple",
+                "Titulo" => "Ocurrió un error Inesperado",
+                "Texto" => "El equipo ya ha sido entregado a otro usuario",
+                "Tipo" => "error"
+            ];
+            echo json_encode($alerta);
+            exit();
+        }
+    
         $check_entrega = mainModel::ejecutar_consulta_simple("SELECT id_entrega FROM tbl_entrega WHERE id_entrega='$id_entrega'");
         if ($check_entrega->rowCount() > 0) {
             $alerta = [
@@ -78,7 +104,7 @@ class entregaControlador extends entregaModelo
             "id_usuario"=> $id_usuario,
             "id_equipo"=> $id_equipo
         ];
-        
+    
         $agregar_entrega = entregaModelo::agregar_entrega_modelos($datos_entrega_add);
         if ($agregar_entrega->rowCount() == 1) {
             $alerta = [
@@ -98,6 +124,7 @@ class entregaControlador extends entregaModelo
         echo json_encode($alerta);
         exit();
     }
+    
 
 
 

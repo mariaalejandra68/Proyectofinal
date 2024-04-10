@@ -60,7 +60,7 @@ class usuarioControlador extends usuarioModelo
             exit();
         }
         
-        $check_usuario = mainModel::ejecutar_consulta_simple("SELECT identificacion FROM tbl_usuarios WHERE identificacion='$identificacion)'");
+        $check_usuario = mainModel::ejecutar_consulta_simple("SELECT identificacion FROM tbl_usuarios WHERE identificacion='$identificacion'");
         if ($check_usuario->rowCount() > 0) {
             $alerta = [
                 "Alerta" => "simple",
@@ -167,7 +167,7 @@ class usuarioControlador extends usuarioModelo
                         <td>
                             <form class="FormularioAjax" action="' . SERVERURL . 'ajax/usuarioAjax.php" 
                                 method="post" data-form="delete" autocomplete="off"> 		
-                                <input type="hidden" name="usuario_eliminar" value="' . mainModel::encryption($rows['identificacion']) . '"></input>
+                                <input type="hidden" name="usuario_eliminar" value="'  . mainModel::encryption($rows['identificacion']) . '"></input>
                                 <button type="submit" class="btn btn-warning">
                                     <i class="bi bi-trash3 lead"></i>
                                 </button>
