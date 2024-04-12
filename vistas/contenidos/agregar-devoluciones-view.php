@@ -96,18 +96,6 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                     </div>
 
                                     <div class="form-group col-md-4 mt-3">
-                                        <label class="form-label">Disponibilidad</label>
-                                        <select class="form-control" id="input-select-disponibilidad" name="id_disponibilidad_reg">
-                                            <option>Selecciona</option>
-                                            <?php foreach ($disponibilidad as $fila) : ?>
-                                                <option value="<?php echo $fila['id_disponibilidad']; ?>">
-                                                    <?php echo ($fila['id_disponibilidad'] == 1) ? 'Disponible' : 'No disponible'; ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Observaciones</label>
                                         <input class="form-control" maxlength="30" type="text" name="observaciones_reg" require>
                                     </div>

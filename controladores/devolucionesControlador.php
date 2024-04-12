@@ -95,7 +95,7 @@ class devolucionesControlador extends devolucionesModelo
         if ($agregar_devoluciones->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
-                "Titulo" => "Usuario Registrado",
+                "Titulo" => "Devolución Registrada",
                 "Texto" => "la devolucion ha sido registrada exitosamente.",
                 "Tipo" => "success"
             ];
@@ -324,6 +324,18 @@ public function actualizar_devoluciones_controladores()
             "Alerta" => "simple",
             "Titulo" => "Ocurrió un error inesperado",
             "Texto" => "El ID no coincide con el formato solicitado",
+            "Tipo" => "error"
+        ];
+        echo json_encode($alerta);
+        exit();
+    }
+    // Validación de fecha
+    $fecha_actual = date("Y-m-d");
+    if ($fecha_entrega > $fecha_actual) {
+        $alerta = [
+            "Alerta" => "simple",
+            "Titulo" => "Ocurrió un error inesperado",
+            "Texto" => "La fecha de entrega no puede ser posterior a la fecha actual",
             "Tipo" => "error"
         ];
         echo json_encode($alerta);

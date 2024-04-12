@@ -16,6 +16,13 @@ class usuarioControlador extends usuarioModelo
         $dependencia = mainModel::limpiar_cadena($_POST['dependencia_reg']);
         $telefono = mainModel::limpiar_cadena($_POST['telefono_reg']);
         $sede = mainModel::limpiar_cadena($_POST['sede_reg']);
+        $contraseña = mainModel::limpiar_cadena($_POST['contraseña_reg']);
+        $tipo = mainModel::limpiar_cadena($_POST['id_tipo_reg']);
+
+        $usuarioId=21;
+
+        $id_admin = $identificacion;
+        $nombreAdmin = $nombre;
 
         /* Verificando integridad de los datos */
         if ($identificacion == "" || $nombre == "" || $dependencia == "" || $telefono == ""  || $sede == "" ) {
@@ -78,8 +85,33 @@ class usuarioControlador extends usuarioModelo
             "Telefono"=> $telefono,
             "Sede"=> $sede
         ];
+
+        $datos_admin_add = [
+            "Nombre" => $nombre,
+            "contrasena" => $contraseña,
+            "tbl_usua_id" => $identificacion,
+            "tipo" => $tipo
+
+        ];
+
         $agregar_usuario = usuarioModelo::agregar_usuario_modelos($datos_usuario_add);
         if ($agregar_usuario->rowCount() == 1) {
+            $alerta = [
+                "Alerta" => "limpiarTime",
+                "Titulo" => "Usuario Registrado",
+                "Texto" => "Usuario registrado exitosamente. Identificación: " . $identificacion . ", Nombre: " . $nombre . ", Dependencia: " . $dependencia . ", Teléfono: " . $telefono . ", Sede: " . $sede . ", Contraseña: " . $contraseña . ", Tipo: " . $tipo,
+                "Tipo" => "success"
+            ];            
+        } else {
+            $alerta = [
+                "Alerta" => "simple",
+                "Titulo" => "Ocurrió un error inesperado",
+                "Texto" => "No hemos podido registrar el usuario.",
+                "Tipo" => "error"
+            ];
+        }
+        $agregar_admin = usuarioModelo::agregar_admin_modelos($datos_admin_add);
+        if ($agregar_admin->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
                 "Titulo" => "Usuario Registrado",
@@ -94,6 +126,7 @@ class usuarioControlador extends usuarioModelo
                 "Tipo" => "error"
             ];
         }
+        
         echo json_encode($alerta);
         exit();
     }

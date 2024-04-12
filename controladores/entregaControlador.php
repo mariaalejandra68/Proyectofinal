@@ -109,8 +109,8 @@ class entregaControlador extends entregaModelo
         if ($agregar_entrega->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
-                "Titulo" => "Usuario Registrado",
-                "Texto" => "El usuario ha sido registrado exitosamente.",
+                "Titulo" => "Entrega Registrada",
+                "Texto" => "La entrega ha sido registrada exitosamente.",
                 "Tipo" => "success"
             ];
         } else {

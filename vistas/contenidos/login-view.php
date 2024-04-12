@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group mt-4">
                             <button type="submit" class="btn btn1-outline-success btn-block">Ingresar</button>
-                            <button type="button" onclick="window.location.href='<?php echo SERVERURL; ?>registrar-login/';" class="btn btn1-outline-success btn-block">Registrarse</button>
+                            <!-- <button type="button" onclick="window.location.href='<?php //echo SERVERURL; ?>registrar-login/';" class="btn btn1-outline-success btn-block">Registrarse</button> -->
 
                         </div>
                     </form>

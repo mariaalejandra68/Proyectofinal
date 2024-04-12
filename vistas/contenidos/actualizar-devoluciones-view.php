@@ -109,17 +109,6 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                             </select>
                                      </div>
                                      <div class="row">
-                                        <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">Disponibilidad</label>
-                                            <select class="form-control" name="id_disponibilidad_up">
-                                                <option>Selecciona</option>
-                                                <?php foreach ($disponibilidad as $fila) : ?>
-                                                    <option value="<?php echo $fila['id_disponibilidad']; ?>" <?php if ($campos['id_disponibilidad'] == $fila['id_disponibilidad']) {
-                                                        echo 'selected=""';} ?>><?php echo $fila['disponibilidad'] ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
 
                                     <div class="form-group col-md-4 mt-3">
                                             <label class="control-label">Observaciones </label>

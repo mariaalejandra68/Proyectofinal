@@ -5,6 +5,12 @@
   }
 </style>
 
+<?php
+include "./modelos/usuarioModelo.php";
+$reg_usuario = new usuarioModelo();
+$tipo = $reg_usuario->listar_tipo();
+?>
+
 <section class="tab-components">
     <div class="container-fluid">
         <div class="title-wrapper pt-30">
@@ -64,6 +70,21 @@
                                         <div class="form-group mt-3">
                                             <label class="control-label">Sede</label>
                                             <input class="form-control" maxlength="50" type="text" name="sede_reg" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" required>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label class="control-label">Contraseña</label>
+                                            <input class="form-control" maxlength="50" type="password" name="contraseña_reg" required>
+                                        </div>
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="form-label">Tipo de usuario</label>
+                                            <select class="form-control" id="input-select-disponibilidad" name="id_tipo_reg">
+                                                <option>Selecciona</option>
+                                                <?php foreach ($tipo as $fila) : ?>
+                                                    <option value="<?php echo $fila['id_tipo']; ?>">
+                                                        <?php echo $fila['tipo']; ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

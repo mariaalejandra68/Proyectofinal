@@ -19,6 +19,27 @@ class usuarioModelo extends mainModel
         return $sql;
     }
 
+    protected static function agregar_admin_modelos($datos_admin){
+        $sql = mainModel::conectar()->prepare("INSERT INTO tbl_administrador(useUser, usePass, tbl_usua_id, id_tipo_usu)       
+        VALUES(:Nombre,:contrasena,:tbl_usua_id,:tipo)");
+        $sql->bindParam(":Nombre", $datos_admin['Nombre']);
+        $sql->bindParam(":contrasena", $datos_admin['contrasena']);
+        $sql->bindParam(":tbl_usua_id", $datos_admin['tbl_usua_id']);
+        $sql->bindParam(":tipo", $datos_admin['tipo']);
+    
+        $sql->execute();
+        return $sql;
+    }
+    
+
+    public function listar_tipo()
+    {
+        $sql = mainModel::conectar()->prepare("SELECT * FROM tbl_tipo");
+        $sql->execute();
+        return $sql;
+    }
+    
+
     /*------------- MODELO ELIMINAR USUARIO -----------------------*/
     protected static function eliminar_usuario_modelos($id)
     {
