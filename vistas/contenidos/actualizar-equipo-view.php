@@ -88,13 +88,12 @@ $disponibilidad = $reg_usuario->listar_disponibilidad();
                                         </div>
 
                                         <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">Usuario</label>
-                                            <select class="form-control" name="id_usuario_up">
+                                        <label class="control-label">Usuarios</label>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_usuario_up" id="input-select-usuario">
                                                 <option>Selecciona</option>
                                                 <?php foreach ($usuario as $fila) : ?>
-                                                    <option value="<?php echo $fila['identificacion']; ?>" <?php if ($campos['id_usuario'] == $fila['identificacion']) {
-                                                        echo 'selected=""';} ?>><?php echo $fila['identificacion'] ?>
-                                                    </option>
+                                                    <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>

@@ -287,7 +287,7 @@ class equipoControlador extends equipoModelo
             echo json_encode($alerta);
             exit();
         }
-        if (mainModel::verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}", $n_serial)) {
+        if (mainModel::verificar_datos("[0-9]{2,10}", $n_serial)) {
             $alerta = [
                 "Alerta" => "simple",
                 "Titulo" => "Ocurrió un error inesperado",

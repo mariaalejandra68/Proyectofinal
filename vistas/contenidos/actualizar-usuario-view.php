@@ -24,9 +24,6 @@ $reg_equipo = new usuarioModelo();
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Usuario</a>
-                                </li>
-                                <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>usuario-lista/">Lista de Usuarios</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">

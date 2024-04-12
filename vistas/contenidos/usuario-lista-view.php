@@ -32,9 +32,6 @@ if(isset($_GET['n_placa'])) {
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="">Usuario</a>
-                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Lista de Usuario
                                 </li>

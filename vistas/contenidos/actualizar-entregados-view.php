@@ -91,31 +91,32 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                             <label class="control-label">Documento Representante</label>
                                             <input class="form-control" maxlength="10" type="text" name="documento_representante_up" value="<?php echo $campos['documento_representante']; ?>" pattern="[0-9-]{2,10}" require>
                                         </div>
-                                    </div>
-                                       <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">Usuario</label>
-                                            <select class="form-control" name="id_usuario_up">
+                                    
+                                        <div class="form-group col-md-4 mt-3">
+                                        <label class="control-label">Usuarios</label>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_usuario_up" id="input-select-usuario">
                                                 <option>Selecciona</option>
                                                 <?php foreach ($usuario as $fila) : ?>
-                                                    <option value="<?php echo $fila['identificacion']; ?>" <?php if ($campos['id_usuario'] == $fila['identificacion']) {
-                                                        echo 'selected=""';} ?>><?php echo $fila['identificacion'] ?>
-                                                    </option>
+                                                    <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
+                                        </div>
+                                   
 
-                                    <div class="row">
                                         <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">equipo</label>
-                                            <select class="form-control" name="id_equipo_up">
+                                        <label class="control-label">Equipos</label>
+                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                            <select class="form-control selectpicker" data-live-search="true" name="id_equipo_up" id="input-select-equipo">
                                                 <option>Selecciona</option>
                                                 <?php foreach ($equipo as $fila) : ?>
-                                                    <option value="<?php echo $fila['n_placa']; ?>" <?php if ($campos['id_equipo'] == $fila['n_placa']) {
-                                                        echo 'selected=""';} ?>><?php echo $fila['n_placa'] ?>
-                                                    </option>
+                                                    <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
+                                        </div>
+                                    
 
                                         
                                     </div>

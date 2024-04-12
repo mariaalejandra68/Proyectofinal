@@ -23,7 +23,7 @@
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#0">Usuario</a>
+                                    <a href="<?php echo SERVERURL; ?>usuario-lista/">lista de usuarios</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Buscar usuario

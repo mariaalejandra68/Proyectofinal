@@ -22,6 +22,9 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
+                                <li class="breadcrumb-item">
+                                    <a href="<?php echo SERVERURL; ?>lista-devoluciones/">Lista</a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Buscar Devoluciones
                                 </li>

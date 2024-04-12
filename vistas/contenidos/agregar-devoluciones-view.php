@@ -4,7 +4,7 @@ $reg_equipo = new devolucionesModelo();
 $equipo = $reg_equipo->listar_equipos();
 $usuario = $reg_equipo->listar_usuario();
 $soporte = $reg_equipo->listar_soporte();
-$disponibilidad = $reg_equipo->listar_disponibilidad();
+
 ?>
 <style>
   .form-elements-wrapper {
@@ -28,9 +28,6 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#0">Usuario</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Agregar Devoluciones
@@ -69,36 +66,37 @@ $disponibilidad = $reg_equipo->listar_disponibilidad();
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    
 
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Equipos</label>
-                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
-                                            <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
-                                                <option>Selecciona</option>
-                                                <?php foreach ($equipo as $fila) : ?>
-                                                    <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="control-label">Equipos</label>
+                                            <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                                <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
+                                                    <option>Selecciona</option>
+                                                    <?php foreach ($equipo as $fila) : ?>
+                                                        <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Soporte Técnico</label>
-                                        <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
-                                            <select class="form-control selectpicker" data-live-search="true" name="id_soporte_reg" id="input-select-soporte">
-                                                <option>Selecciona</option>
-                                                <?php foreach ($soporte as $fila) : ?>
-                                                    <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
+                                        <div class="form-group col-md-4 mt-3">
+                                            <label class="control-label">Soporte Técnico</label>
+                                            <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                                <select class="form-control selectpicker" data-live-search="true" name="id_soporte_reg" id="input-select-soporte">
+                                                    <option>Selecciona</option>
+                                                    <?php foreach ($soporte as $fila) : ?>
+                                                        <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
                                     <div class="form-group col-md-4 mt-3">
                                         <label class="control-label">Observaciones</label>
                                         <input class="form-control" maxlength="30" type="text" name="observaciones_reg" require>
                                     </div>
+                                
 
                                     <div class="form-group col-md-4 mt-5">
                                         <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Guardar Datos</button>

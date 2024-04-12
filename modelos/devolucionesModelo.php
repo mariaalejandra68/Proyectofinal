@@ -32,12 +32,7 @@ class devolucionesModelo extends mainModel
         $sql->execute();
         return $sql;
     }
-    public function listar_disponibilidad()
-    {
-        $sql = mainModel::conectar()->prepare("SELECT * FROM tbl_disponibilidad");
-        $sql->execute();
-        return $sql;
-    }
+    
     
     public function listar_soporte()
     {

@@ -72,17 +72,17 @@ class devolucionesControlador extends devolucionesModelo
             exit();
         }
         
-        $check_devoluciones = mainModel::ejecutar_consulta_simple("SELECT id_devolucion FROM tbl_devoluciones WHERE id_devolucion='$id_devolucion)'");
+         $check_devoluciones = mainModel::ejecutar_consulta_simple("SELECT id_devolucion FROM tbl_devoluciones WHERE id_devolucion='$id_devolucion'");
         if ($check_devoluciones->rowCount() > 0) {
             $alerta = [
                 "Alerta" => "simple",
                 "Titulo" => "Ocurrió un error Inesperado",
                 "Texto" => "La identificación ingresada ya se encuentra registrada en el sistema",
                 "Tipo" => "error"
-            ];
-            echo json_encode($alerta);
-            exit();
-        }
+        ];
+        echo json_encode($alerta);
+        exit();
+    }
         $datos_devoluciones_add  = [
             "id_devolucion"=> $id_devolucion,
             "fecha_devolucion"=> $fecha_devolucion,

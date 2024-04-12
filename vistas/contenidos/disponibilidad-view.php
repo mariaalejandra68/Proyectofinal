@@ -53,7 +53,7 @@ if(isset($_GET['id_disponibilidad'])) {
                     <a href="<?php echo SERVERURL;?>vista-usuario/" class="btn btn-success">Solicitud prestamo equipo</a>
                 </div>
                 <p class="text-sm mb-20 mt-3">
-                ¡Bienvenido! Si estás visualizando equipos disponibles, ¡no dudes en enviar tu solicitud ahora mismo! ¡Estamos aquí para ayudarte a conseguir lo que necesitas!
+                ¡Bienvenido querido usuario! Si estás visualizando equipos disponibles, envia tu solicitud y pronto te responderemos.
                 </p>
                 <div class="table-responsive text-center">
                     <?php

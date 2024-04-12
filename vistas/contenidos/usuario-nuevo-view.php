@@ -28,9 +28,6 @@ $tipo = $reg_usuario->listar_tipo();
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#0">Usuario</a>
-                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Crear Usuario
                                 </li>
