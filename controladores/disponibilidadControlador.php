@@ -19,14 +19,20 @@ class disponibilidadControlador extends equipoModelo
         $busqueda = mainModel::limpiar_cadena($busqueda);
 
         $tabla = "";
+        //$id_usuario = $_SESSION
 
         $pagina = (isset($pagina) && $pagina > 0) ? (int) $pagina : 1;
         $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
 
         if (isset($busqueda) && $busqueda != "") {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion, tbl_disponibilidad.disponibilidad FROM tbl_equipos JOIN tbl_disponibilidad on tbl_disponibilidad.id_disponibilidad = tbl_equipos.id_disponibilidad WHERE ((n_placa!='$n_placa' AND n_placa!='1') AND (n_placa LIKE '%$busqueda%' OR n_serial  LIKE '%$busqueda%') AND tbl_equipos.id_disponibilidad = '1') ORDER BY n_placa ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion 
+             FROM tbl_equipos 
+             WHERE tbl_equipos.id_usuario = '{$_SESSION['tbl_usua_id']}' 
+             AND (tbl_equipos.n_placa LIKE '%$busqueda%' OR tbl_equipos.n_serial LIKE '%$busqueda%') 
+             ORDER BY tbl_equipos.id_usuario ASC 
+             LIMIT $inicio, $registros";
         } else {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion, tbl_disponibilidad.disponibilidad FROM tbl_equipos JOIN tbl_disponibilidad on tbl_disponibilidad.id_disponibilidad = tbl_equipos.id_disponibilidad WHERE n_placa!='$n_placa' AND n_placa!='1' AND tbl_equipos.id_disponibilidad = '1' ORDER BY n_placa  ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS tbl_equipos.n_placa, tbl_equipos.n_serial, tbl_equipos.descripcion FROM tbl_equipos WHERE tbl_equipos.id_usuario = {$_SESSION['tbl_usua_id_spc']}  ORDER BY tbl_equipos.id_usuario  ASC LIMIT $inicio, $registros";
         }        
         
         $conexion = mainModel::conectar();
@@ -45,7 +51,7 @@ class disponibilidadControlador extends equipoModelo
                 <th class="text-center">No. de Placa</th>
                 <th class="text-center">No. de Serial</th>
                 <th class="text-center">Descripcion</th>
-                <th class="text-center">Disponibilidad</th>
+                <th class="text-center">Traspaso</th>
             </tr>
             ';
         if ($total >= 1 &&  $pagina <= $Npaginas) {
@@ -59,8 +65,12 @@ class disponibilidadControlador extends equipoModelo
                         <td class="min-width">' . $rows['n_placa'] . '</td>
                         <td class="min-width">' . $rows['n_serial'] . '</td>
                         <td class="min-width">' . $rows['descripcion'] . '</td>
-                        <td class="min-width">' . $rows['disponibilidad'] . '</td>
-                          
+                        
+                        <td class="stat"><a href="' . SERVERURL . 'agregar-traspaso' . '/"</input>
+                            <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-arrow-right-circle lead"></i>
+                            </button>
+                        </td>
                     </tr>';
                 
                 $contador++;

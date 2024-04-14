@@ -1,12 +1,4 @@
-<?php
-// Obtener el ID del aprendiz de la URL
-if(isset($_GET['id_disponibilidad'])) {
-    $id_disponibilidad =$_GET['id_disponibilidad'];
-} else {
-    // Manejar el caso en el que no se proporciona un ID en la URL
-    $id_disponibilidad = "No se proporcionó un ID";
-}
-?>
+
 <style>
   .row {
     background-color: #b4e4b4;
@@ -37,7 +29,7 @@ if(isset($_GET['id_disponibilidad'])) {
                                     <a href="<?php echo SERVERURL; ?>vista-usuario/">Formulario</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Lista de Equipos Disponibles
+                                    Lista de tus equipos
                                 </li>
                             </ol>
                         </nav>
@@ -47,13 +39,13 @@ if(isset($_GET['id_disponibilidad'])) {
             
             <div class="card-style mb-30">
                 <center>
-                    <h6 class="texto"><i class="bi bi-person-check-fill p-1"></i>Equipos Disponibles</h6>
+                    <h3 class="texto"><i class="bi bi-person-check-fill p-1"></i>Tus equipos</h3>
                 </center>
-                <div class="text-end mb-3">
-                    <a href="<?php echo SERVERURL;?>vista-usuario/" class="btn btn-success">Solicitud prestamo equipo</a>
-                </div>
+                <!-- <div class="text-end mb-3">
+                    <a href="<?php //echo SERVERURL;?>vista-usuario/" class="btn btn-success">Solicitud prestamo equipo</a>
+                </div> -->
                 <p class="text-sm mb-20 mt-3">
-                ¡Bienvenido querido usuario! Si estás visualizando equipos disponibles, envia tu solicitud y pronto te responderemos.
+                Equipos a tu disposición
                 </p>
                 <div class="table-responsive text-center">
                     <?php
