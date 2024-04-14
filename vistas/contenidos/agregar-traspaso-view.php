@@ -1,8 +1,9 @@
 <?php
-include "./modelos/equipoModelo.php";
-$reg_usuario = new equipoModelo();
+include "./modelos/traspasoModelo.php";
+$reg_usuario = new traspasoModelo();
 $usuario = $reg_usuario->listar_usuario();
-$disponibilidad = $reg_usuario->listar_disponibilidad();
+$equipo = $reg_usuario->listar_equipos();
+$usuario2 = $reg_usuario->listar_usuario();
 ?>
 <style>
   .form-elements-wrapper {
@@ -42,48 +43,86 @@ $disponibilidad = $reg_usuario->listar_disponibilidad();
                     <div class="col-lg-12">
                         <div class="card-style mb-30 text-center">
                             <div class="text-center mt-2 texto" style="font-size: 25px;"><i class="bi bi-person-plus lead p-1"></i>Agregar Equipo</div>
-                            <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/equipoAjax.php" method="POST" data-form="save" autocomplete="off">
-                                <div class="row mt-4">
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">No. de Placa</label>
-                                        <input class="form-control" maxlength="10" type="text" name="n_placa_reg" pattern="[0-9-]{4,10}" require>
-                                    </div>
-
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">No. de Serial</label>
-                                        <input class="form-control" maxlength="30" type="text" name="n_serial_reg" require>
-                                    </div>
-
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Descripcion</label>
-                                        <input class="form-control" maxlength="30" type="text" name="descripcion_reg" require>
-                                    </div>
-                                </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-4 mt-3">
-                                            <label class="form-label">Disponibilidad</label>
-                                            <select class="form-control" id="input-select-disponibilidad" name="id_disponibilidad_reg">
-                                                <option>Selecciona</option>
-                                                <?php foreach ($disponibilidad as $fila) : ?>
-                                                    <option value="<?php echo $fila['id_disponibilidad']; ?>">
-                                                        <?php echo ($fila['id_disponibilidad'] == 1) ? 'Disponible' : 'No disponible'; ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group col-md-4 mt-3">
-                                        <label class="control-label">Usuario</label>
-                                        <!-- Campo de selección para el usuario -->
-                                        <select class="form-control" id="input-select-usuario" name="id_usuario_reg">
+                            <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/traspasoAjax.php" method="POST" data-form="save" autocomplete="off">
+                            <div class="row mt-4">
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Usuario quien estrega</label>
+                                    <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                        <select class="form-control selectpicker" data-live-search="true" name="id_usuario_entrega_reg" id="input-select-usuario">
                                             <option>Selecciona</option>
                                             <?php foreach ($usuario as $fila) : ?>
                                                 <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
+                                </div>
+                                <!-- Campos para Usuario quien estrega -->
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Equipos</label>
+                                    <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                        <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
+                                            <option>Selecciona</option>
+                                            <?php foreach ($equipo as $fila) : ?>
+                                                <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Usuario que recibe</label>
+                                    <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
+                                        <select class="form-control selectpicker" data-live-search="true" name="id_usuario_recibe_reg" id="input-select-usuario">
+                                            <option>Selecciona</option>
+                                            <?php foreach ($usuario2 as $fila2) : ?>
+                                                <option value="<?php echo $fila2['identificacion']; ?>"><?php echo $fila2['identificacion']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre_usuario_entrega" placeholder="Nombre del usuario quien estrega">
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Placa</label>
+                                    <input type="text" class="form-control" name="placa_equipo" placeholder="Placa del equipo">
+                                </div>
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre_usuario_recibe" placeholder="Nombre del usuario que recibe">
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Dependencia</label>
+                                    <input type="text" class="form-control" name="dependencia_usuario_entrega" placeholder="Dependencia del usuario quien estrega">
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Serial</label>
+                                    <input type="text" class="form-control" name="serial_equipo" placeholder="Serial del equipo">
+                                </div>
+
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Dependencia</label>
+                                    <input type="text" class="form-control" name="dependencia_usuario_recibe" placeholder="Dependencia del usuario que recibe">
+                                </div>
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Sede</label>
+                                    <input type="text" class="form-control" name="sede_usuario_entrega" placeholder="Sede del usuario quien estrega">
+                                </div>
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Descripción</label>
+                                    <input type="text" class="form-control" name="descripcion_equipo" placeholder="Descripción del equipo">
+                                </div>
+                                
+                                <div class="form-group col-md-4 mt-3">
+                                    <label class="control-label">Sede</label>
+                                    <input type="text" class="form-control" name="sede_usuario_recibe" placeholder="Sede del usuario que recibe">
+                                </div>
+                            </div>
 
                                     <div class="form-group col-md-4 mt-5">
                                         <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Guardar Datos</button>

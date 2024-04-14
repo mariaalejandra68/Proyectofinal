@@ -97,23 +97,23 @@
           </li>
         </ul>
       </li>
-      <!-- <li class="nav-item nav-item-has-children">
+      <li class="nav-item nav-item-has-children">
         <a href="" class="collapsed dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#ddmenu_traspaso" aria-controls="ddmenu_traspaso" aria-expanded="false" aria-label="Toggle navigation">
           <i class="bi bi-arrow-right-short px-2 iconos-color"></i>
           <span class="text">Traspaso</span>
         </a>
         <ul id="ddmenu_traspaso" class="collapse dropdown-nav">
           <li>
-            <a href="<?php //echo SERVERURL;?>agregar-traspaso/">Agregar Traspaso</a>
+            <a href="<?php echo SERVERURL;?>agregar-traspaso/">Agregar Traspaso</a>
           </li>
           <li>
-            <a href="<?php //echo SERVERURL;?>lista-traspaso/">Lista de Equipos Traspasados</a>
+            <a href="<?php echo SERVERURL;?>lista-traspaso/">Lista de Equipos Traspasados</a>
           </li>
           <li>
-            <a href="<?php //echo SERVERURL;?>buscar-traspaso/">Buscar Traspaso</a>
+            <a href="<?php echo SERVERURL;?>buscar-traspaso/">Buscar Traspaso</a>
           </li>
         </ul>
-      </li> -->
+      </li>
       <li class="nav-item nav-item-has-children">
         <a href="" class="collapsed dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#ddmenu_soporte" aria-controls="ddmenu_soporte" aria-expanded="false" aria-label="Toggle navigation">
           <i class="bi bi-gear-wide-connected px-2 iconos-color"></i>
