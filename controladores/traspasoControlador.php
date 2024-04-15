@@ -119,9 +119,10 @@ class traspasoControlador extends traspasoModelo
             <table class="table table-hover table-sm">
             <tr>
                 <th class="text-center">No.</th>
-                <th class="text-center">id_usuario_entrega</th>
-                <th class="text-center">id_usuario_recibe</th>
-                <th class="text-center">id_equipo</th>
+                <th class="text-center">Fecha traspaso</th>
+                <th class="text-center">Usuario que entrega</th>
+                <th class="text-center">Usuario que recibe</th>
+                <th class="text-center">Equipo</th>
                 <th class="text-center" colspan="2">Acciones</th>
             </tr>
             ';

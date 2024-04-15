@@ -8,6 +8,7 @@ if (isset($_POST['Horarios_search']) || isset($_POST['eliminar_busqueda'])) {
         "equipo" => "buscar-equipo/",
         "entrega" => "buscar-entregados/",
         "devoluciones" => "buscar-devoluciones/",
+        "traspaso" => "buscar-traspaso/",
     ];
 
     if (isset($_POST['modulo'])) {   

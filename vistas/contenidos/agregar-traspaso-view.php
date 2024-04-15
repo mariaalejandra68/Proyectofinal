@@ -30,7 +30,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                     <a href="<?php echo SERVERURL; ?>home/">Principal</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Agregar Equipo
+                                    Agregar Traspaso
                                 </li>
                             </ol>
                         </nav>
@@ -42,7 +42,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-style mb-30 text-center">
-                            <div class="text-center mt-2 texto" style="font-size: 25px;"><i class="bi bi-person-plus lead p-1"></i>Agregar Equipo</div>
+                            <div class="text-center mt-2 texto" style="font-size: 25px;"><i class="bi bi-person-plus lead p-1"></i>Agregar Traspaso</div>
                             <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/traspasoAjax.php" method="POST" data-form="save" autocomplete="off">
                             <div class="row mt-4">
                                 <div class="form-group col-md-4 mt-3">
