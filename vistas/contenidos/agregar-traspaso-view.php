@@ -46,9 +46,10 @@ $usuario2 = $reg_usuario->listar_usuario();
                             <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/traspasoAjax.php" method="POST" data-form="save" autocomplete="off">
                             <div class="row mt-4">
                                 <div class="form-group col-md-4 mt-3">
-                                    <label class="control-label">Usuario quien estrega</label>
+                                    <label class="control-label">Usuario quien entrega</label>
                                     <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
-                                        <select class="form-control selectpicker" data-live-search="true" name="id_usuario_entrega_reg" id="input-select-usuario">
+                                        <select class="form-control selectpicker" data-live-search="true" name="id_usuario_entrega_reg" id="input-select-usuario-entrega"
+                                        onchange="llenar_equipo()">
                                             <option>Selecciona</option>
                                             <?php foreach ($usuario as $fila) : ?>
                                                 <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
@@ -56,11 +57,11 @@ $usuario2 = $reg_usuario->listar_usuario();
                                         </select>
                                     </div>
                                 </div>
-                                <!-- Campos para Usuario quien estrega -->
+                                <!-- Campos para Usuario quien entrega -->
                                 <div class="form-group col-md-4 mt-3">
                                     <label class="control-label">Equipos</label>
                                     <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
-                                        <select class="form-control selectpicker" data-live-search="true" name="id_equipo_reg" id="input-select-equipo">
+                                        <select class="form-control selectpicker" name="id_equipo_reg" id="input-select-equipo">
                                             <option>Selecciona</option>
                                             <?php foreach ($equipo as $fila) : ?>
                                                 <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
@@ -68,6 +69,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                         </select>
                                     </div>
                                 </div>
+
                                 
                                 <div class="form-group col-md-4 mt-3">
                                     <label class="control-label">Usuario que recibe</label>
@@ -81,7 +83,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                     </div>
                                 </div>
                                 
-                                <div class="form-group col-md-4 mt-3">
+                                <!-- <div class="form-group col-md-4 mt-3">
                                     <label class="control-label">Nombre</label>
                                     <input type="text" class="form-control" name="nombre_usuario_entrega" placeholder="Nombre del usuario quien estrega">
                                 </div>
@@ -121,7 +123,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                 <div class="form-group col-md-4 mt-3">
                                     <label class="control-label">Sede</label>
                                     <input type="text" class="form-control" name="sede_usuario_recibe" placeholder="Sede del usuario que recibe">
-                                </div>
+                                </div> -->
                             </div>
 
                                     <div class="form-group col-md-4 mt-5">
@@ -137,3 +139,8 @@ $usuario2 = $reg_usuario->listar_usuario();
         </div>
     </div>
 </section>
+
+
+
+
+

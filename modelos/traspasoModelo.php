@@ -9,7 +9,6 @@ class traspasoModelo extends mainModel
     protected static function agregar_traspaso_modelos($datos){
         $sql = mainModel::conectar()->prepare("INSERT INTO tbl_traspaso(fecha_traspaso,id_usuario_entrega,id_usuario_recibe,id_equipo)      
         VALUES(NOW(),:id_usuario_entrega,:id_usuario_recibe,:id_equipo)");
-        $sql->bindParam(":fecha_traspaso", $datos['fecha_traspaso']);
         $sql->bindParam(":id_usuario_entrega", $datos['id_usuario_entrega']);
         $sql->bindParam(":id_usuario_recibe", $datos['id_usuario_recibe']);
         $sql->bindParam(":id_equipo", $datos['id_equipo']);
@@ -26,6 +25,9 @@ class traspasoModelo extends mainModel
 
     public function listar_equipos()
     {
+        if (!isset($usuarioEntrega)){
+            $usuarioEntrega = 0;
+        }
         $sql = mainModel::conectar()->prepare("SELECT * FROM tbl_equipos");
         $sql->execute();
         return $sql;
