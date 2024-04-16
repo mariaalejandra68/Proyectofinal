@@ -23,6 +23,13 @@ class traspasoModelo extends mainModel
         return $sql;
     }
 
+    public function listar_equipos_por_usuario($usuarioSeleccionado) {
+        $sql = mainModel::conectar()->prepare("SELECT * FROM tbl_equipos WHERE id_usuario = :usuario");
+        $sql->bindParam(":usuario", $usuarioSeleccionado);
+        $sql->execute();
+        return $sql;
+    }
+    
     public function listar_equipos()
     {
         if (!isset($usuarioEntrega)){

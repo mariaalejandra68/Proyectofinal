@@ -49,7 +49,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                     <label class="control-label">Usuario quien entrega</label>
                                     <div class="dropdown bootstrap-select form-control" style="border: 1px solid #ced4da !important; border-radius: 4px !important;">
                                         <select class="form-control selectpicker" data-live-search="true" name="id_usuario_entrega_reg" id="input-select-usuario-entrega"
-                                        onchange="llenar_equipo()">
+                                        onchange="cargarEquipos()">
                                             <option>Selecciona</option>
                                             <?php foreach ($usuario as $fila) : ?>
                                                 <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
@@ -139,6 +139,21 @@ $usuario2 = $reg_usuario->listar_usuario();
         </div>
     </div>
 </section>
+<script>
+    function cargarEquipos() {
+        var usuarioSeleccionado = document.getElementById("input-select-usuario-entrega").value;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo SERVERURL; ?>ajax/cargarEquipos.php",
+            data: { usuario: usuarioSeleccionado },
+            success: function(response) {
+                $("#input-select-equipo").html(response);
+                $(".selectpicker").selectpicker("refresh"); // Actualiza el selectpicker después de cambiar el contenido
+            }
+        });
+    }
+</script>
+
 
 
 
