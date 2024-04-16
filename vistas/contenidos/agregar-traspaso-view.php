@@ -52,7 +52,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                         onchange="cargarEquipos()">
                                             <option>Selecciona</option>
                                             <?php foreach ($usuario as $fila) : ?>
-                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']; ?></option>
+                                                <option value="<?php echo $fila['identificacion']; ?>"><?php echo $fila['identificacion']. ' - ' . $fila['nombre']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -64,9 +64,10 @@ $usuario2 = $reg_usuario->listar_usuario();
                                         <select class="form-control selectpicker" name="id_equipo_reg" id="input-select-equipo">
                                             <option>Selecciona</option>
                                             <?php foreach ($equipo as $fila) : ?>
-                                                <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa']; ?></option>
+                                                <option value="<?php echo $fila['n_placa']; ?>"><?php echo $fila['n_placa'] . ' - ' . $fila['descripcion']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
+                                        
                                     </div>
                                 </div>
 
@@ -77,7 +78,7 @@ $usuario2 = $reg_usuario->listar_usuario();
                                         <select class="form-control selectpicker" data-live-search="true" name="id_usuario_recibe_reg" id="input-select-usuario">
                                             <option>Selecciona</option>
                                             <?php foreach ($usuario2 as $fila2) : ?>
-                                                <option value="<?php echo $fila2['identificacion']; ?>"><?php echo $fila2['identificacion']; ?></option>
+                                                <option value="<?php echo $fila2['identificacion']; ?>"><?php echo $fila2['identificacion']. ' - ' . $fila2['nombre']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>

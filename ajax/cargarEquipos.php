@@ -12,7 +12,7 @@ if (isset($_POST['usuario'])) {
 
     $options = '<option>Selecciona</option>';
     while ($equipo = $equipos->fetch(PDO::FETCH_ASSOC)) {
-        $options .= '<option value="' . $equipo['n_placa'] . '">' . $equipo['n_placa'] . '</option>';
+        $options .= '<option value="' . $equipo['n_placa'] . '">' . $equipo['n_placa'] . ' - ' . $equipo['descripcion']; '</option>';
     }
     echo $options;
 }
