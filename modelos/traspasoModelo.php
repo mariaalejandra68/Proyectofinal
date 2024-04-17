@@ -29,6 +29,14 @@ class traspasoModelo extends mainModel
         $sql->execute();
         return $sql;
     }
+
+    public function listar_equipos_por_usuario2() {
+        $usuarioSeleccionado2 = $_SESSION['tbl_usua_id_spc'];
+        $sql = mainModel::conectar()->prepare("SELECT * FROM tbl_equipos WHERE id_usuario = :tbl_usua_id_spc");
+        $sql->bindParam(":tbl_usua_id_spc", $usuarioSeleccionado2);
+        $sql->execute();
+        return $sql;
+    }
     
     public function listar_equipos()
     {

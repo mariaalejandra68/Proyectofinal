@@ -68,7 +68,7 @@ class traspasoControlador extends traspasoModelo
         if ($agregar_traspaso->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
-                "Titulo" => "traspaso Registrado",
+                "Titulo" => "Traspaso Registrado",
                 "Texto" => "El traspaso ha sido registrado exitosamente.",
                 "Tipo" => "success"
             ];
@@ -101,7 +101,7 @@ class traspasoControlador extends traspasoModelo
         $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
 
         if (isset($busqueda) && $busqueda != "") {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE ((id_traspaso!='$id_traspaso'and id_traspaso!='1') AND (id_traspaso LIKE '%$busqueda%' OR fecha_traspaso  LIKE '%$busqueda%')) ORDER BY id_traspaso ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE id_equipo  LIKE '%$busqueda%' ORDER BY id_traspaso ASC LIMIT $inicio, $registros";
         } else {
             $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE id_traspaso!='$id_traspaso'and id_traspaso!='1' ORDER BY id_traspaso  ASC LIMIT $inicio, $registros";
         }
@@ -119,6 +119,7 @@ class traspasoControlador extends traspasoModelo
             <table class="table table-hover table-sm">
             <tr>
                 <th class="text-center">No.</th>
+                <th class="text-center">ID traspaso</th>
                 <th class="text-center">Fecha traspaso</th>
                 <th class="text-center">Usuario que entrega</th>
                 <th class="text-center">Usuario que recibe</th>
@@ -134,6 +135,8 @@ class traspasoControlador extends traspasoModelo
                     $tabla .=
                         '<tr class="p">
                         <td class="min-width">' . $contador . '</td>
+                        <td class="min-width">' . $rows['id_traspaso'] . '</td>
+                        <td class="min-width">' . $rows['fecha_traspaso'] . '</td>
                         <td class="min-width">' . $rows['id_usuario_entrega'] . '</td>
                         <td class="min-width">' . $rows['id_usuario_recibe'] . '</td>
                         <td class="min-width">' . $rows['id_equipo'] . '</td>
@@ -141,8 +144,8 @@ class traspasoControlador extends traspasoModelo
                         <td>
                             <form class="FormularioAjax" action="' . SERVERURL . 'ajax/equipoAjax.php" 
                                 method="post" data-form="delete" autocomplete="off"> 		
-                                <input type="hidden" name="traspaso_eliminar" value="' . mainModel::encryption($rows['n_placa']) . '"></input>
-                                <button type="submit" class="btn btn-warning">
+                                <input type="hidden" name="traspaso_eliminar" value="' . mainModel::encryption($rows['id_traspaso']) . '"></input>
+                                <button type="submit" class="btn btn-danger">
                                     <i class="bi bi-trash3 lead"></i>
                                 </button>
                             </form>

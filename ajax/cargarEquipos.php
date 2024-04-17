@@ -6,10 +6,10 @@ require_once "../config/APP.php";
 
 if (isset($_POST['usuario'])) {
     $usuarioSeleccionado = $_POST['usuario'];
+    $usuarioSeleccionado2 = $_SESSION['tbl_usua_id_spc'];
     require_once "../modelos/traspasoModelo.php";
     $modelo = new traspasoModelo();
     $equipos = $modelo->listar_equipos_por_usuario($usuarioSeleccionado);
-
     $options = '<option>Selecciona</option>';
     while ($equipo = $equipos->fetch(PDO::FETCH_ASSOC)) {
         $options .= '<option value="' . $equipo['n_placa'] . '">' . $equipo['n_placa'] . ' - ' . $equipo['descripcion']; '</option>';

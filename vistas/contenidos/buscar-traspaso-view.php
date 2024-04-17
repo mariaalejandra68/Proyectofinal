@@ -45,7 +45,7 @@
                                 <form class="FormularioAjax1" action="<?php echo SERVERURL; ?>ajax/buscadorAjax.php" method="POST" data-form="default">
                                     <div class="input-group mt-5">
                                         <input type="hidden" name="modulo" value="traspaso">
-                                        <input class="form-control" type="search" name="Horarios_search" placeholder="Ingresa ID del traspaso">
+                                        <input class="form-control" type="search" name="Horarios_search" placeholder="Ingresa ID del equipo">
                                         <button class="btn btn-outline-secondary" type="submit" name="accion" value="buscarTraspaso" id="button-addon2"><i class="bi bi-search lead p-1"></i></button>
                                     </div>
                                 </form>
