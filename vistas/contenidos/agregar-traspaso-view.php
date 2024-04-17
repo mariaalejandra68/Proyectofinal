@@ -159,7 +159,7 @@ $listarUsuario2= $reg_usuario->listar_equipos_por_usuario2();
                             </div>
 
                                     <div class="form-group col-md-4 mt-5">
-                                        <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Guardar Datos</button>
+                                        <button class="main-btn success-btn-outline rounded-full btn-hover m-1" type="submit" style="font-size: 15px;">Realizar traspaso</button>
                                     </div>
                                 </div>
                             </form>

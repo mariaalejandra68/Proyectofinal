@@ -41,6 +41,16 @@ class usuarioModelo extends mainModel
     
 
     /*------------- MODELO ELIMINAR USUARIO -----------------------*/
+    protected static function eliminar_usuario_administrador_modelos($id)
+    {
+        $sql = mainModel::conectar()->prepare("DELETE FROM tbl_administrador WHERE tbl_usua_id  =:Identificacion");
+
+        $sql->bindParam(":Identificacion", $id);
+        $sql->execute();
+
+        return $sql;
+    }
+
     protected static function eliminar_usuario_modelos($id)
     {
         $sql = mainModel::conectar()->prepare("DELETE FROM tbl_usuarios WHERE identificacion  =:Identificacion");
