@@ -68,7 +68,7 @@ class traspasoControlador extends traspasoModelo
         if ($agregar_traspaso->rowCount() == 1) {
             $alerta = [
                 "Alerta" => "limpiarTime",
-                "Titulo" => "traspaso Registrado",
+                "Titulo" => "Traspaso Registrado",
                 "Texto" => "El traspaso ha sido registrado exitosamente.",
                 "Tipo" => "success"
             ];
@@ -101,7 +101,7 @@ class traspasoControlador extends traspasoModelo
         $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
 
         if (isset($busqueda) && $busqueda != "") {
-            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE ((id_traspaso!='$id_traspaso'and id_traspaso!='1') AND (id_traspaso LIKE '%$busqueda%' OR fecha_traspaso  LIKE '%$busqueda%')) ORDER BY id_traspaso ASC LIMIT $inicio, $registros";
+            $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE id_equipo  LIKE '%$busqueda%' ORDER BY id_traspaso ASC LIMIT $inicio, $registros";
         } else {
             $consulta = "SELECT SQL_CALC_FOUND_ROWS * FROM tbl_traspaso WHERE id_traspaso!='$id_traspaso'and id_traspaso!='1' ORDER BY id_traspaso  ASC LIMIT $inicio, $registros";
         }

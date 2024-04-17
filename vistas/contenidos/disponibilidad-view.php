@@ -41,9 +41,9 @@
                 <center>
                     <h3 class="texto"><i class="bi bi-person-check-fill p-1"></i>Tus equipos</h3>
                 </center>
-                <!-- <div class="text-end mb-3">
-                    <a href="<?php //echo SERVERURL;?>vista-usuario/" class="btn btn-success">Solicitud prestamo equipo</a>
-                </div> -->
+                <div class="text-end mb-3">
+                    <a href="<?php echo SERVERURL;?>agregar-traspaso/" class="btn btn-success">Realizar traspaso</a>
+                </div>
                 <p class="text-sm mb-20 mt-3">
                 Equipos a tu disposición
                 </p>

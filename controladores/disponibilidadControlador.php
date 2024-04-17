@@ -51,7 +51,6 @@ class disponibilidadControlador extends equipoModelo
                 <th class="text-center">No. de Placa</th>
                 <th class="text-center">No. de Serial</th>
                 <th class="text-center">Descripcion</th>
-                <th class="text-center">Traspaso</th>
             </tr>
             ';
         if ($total >= 1 &&  $pagina <= $Npaginas) {
@@ -65,14 +64,8 @@ class disponibilidadControlador extends equipoModelo
                         <td class="min-width">' . $rows['n_placa'] . '</td>
                         <td class="min-width">' . $rows['n_serial'] . '</td>
                         <td class="min-width">' . $rows['descripcion'] . '</td>
-                        
-                        <td class="stat"><a href="' . SERVERURL . 'agregar-traspaso' . '/"</input>
-                            <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="bi bi-arrow-right-circle lead"></i>
-                            </button>
-                        </td>
                     </tr>';
-                
+                $equipoTraspaso = $rows['n_placa'];
                 $contador++;
             }
             $reg_final = $contador - 1;

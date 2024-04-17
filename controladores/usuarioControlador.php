@@ -236,39 +236,64 @@ class usuarioControlador extends usuarioModelo
     /*------------- CONTROLADOR ELIMINAR USUARIO --------------------*/
     public function eliminar_usuario_controladores()
     {
-        $id = mainModel::decryption($_POST['usuario_eliminar']);
-        $id = mainModel::limpiar_cadena($id);
-    
-        $check_usuario = mainModel::ejecutar_consulta_simple("SELECT identificacion  FROM tbl_usuarios WHERE identificacion  ='$id'");
-        if ($check_usuario->rowCount() <= 0) {
-            $alerta = [
-                "Alerta" => "simple",
-                "Titulo" => "Ocurrio un error inesperado",
-                "Texto" => "El usuario que intenta eliminar no existe en el sistema",
-                "Tipo" => "error"
-            ];
+        try {
+            $id = mainModel::decryption($_POST['usuario_eliminar']);
+            $id = mainModel::limpiar_cadena($id);
+
+            $check_usuario = mainModel::ejecutar_consulta_simple("SELECT identificacion  FROM tbl_usuarios WHERE identificacion  ='$id'");
+            if ($check_usuario->rowCount() <= 0) {
+                $alerta = [
+                    "Alerta" => "simple",
+                    "Titulo" => "Ocurrió un error inesperado",
+                    "Texto" => "El usuario que intenta eliminar no existe en el sistema",
+                    "Tipo" => "error"
+                ];
+                echo json_encode($alerta);
+                exit();
+            }
+            $eliminar_admin = usuarioModelo::eliminar_usuario_administrador_modelos($id);
+            $eliminar_usuario = usuarioModelo::eliminar_usuario_modelos($id);
+            
+            
+            if ($eliminar_usuario->rowCount() == 1) {
+                $alerta = [
+                    "Alerta" => "limpiarTime",
+                    "Titulo" => "Eliminado",
+                    "Texto" => "Se ha eliminado el usuario exitosamente.",
+                    "Tipo" => "success"
+                ];
+            } else {
+                $alerta = [
+                    "Alerta" => "simple",
+                    "Titulo" => "Ocurrió un error inesperado.",
+                    "Texto" => "No hemos podido eliminar el usuario.",
+                    "Tipo" => "error"
+                ];
+            }
             echo json_encode($alerta);
-            exit();
+        } catch (PDOException $e) {
+            $errorInfo = $e->errorInfo;
+
+            if ($errorInfo[0] === '23000' && $errorInfo[1] === 1451) {
+                $alerta = [
+                    "Alerta" => "simple",
+                    "Titulo" => "Error al eliminar",
+                    "Texto" => "No se puede eliminar este usuario porque tiene registros relacionados.",
+                    "Tipo" => "error"
+                ];
+            } else {
+                $alerta = [
+                    "Alerta" => "simple",
+                    "Titulo" => "Error en la base de datos",
+                    "Texto" => "Error: " . $e->getMessage(),
+                    "Tipo" => "error"
+                ];
+            }
+
+            echo json_encode($alerta);
         }
-        $eliminar_usuario = usuarioModelo::eliminar_usuario_modelos($id);
-    
-        if ($eliminar_usuario->rowCount() == 1) {
-            $alerta = [
-                "Alerta" => "limpiarTime",
-                "Titulo" => "Eliminado",
-                "Texto" => "Se ha eliminado el usuario exitosamente.",
-                "Tipo" => "success"
-            ];
-        } else {
-            $alerta = [
-                "Alerta" => "simple",
-                "Titulo" => "Ocurrió un error inesperado.",
-                "Texto" => "No hemos podido eliminar la persona.",
-                "Tipo" => "error"
-            ];
-        }
-        echo json_encode($alerta);
     }
+
     
    /*-------------- FIN ELIMINAR USUARIO --------------------------*/
 
